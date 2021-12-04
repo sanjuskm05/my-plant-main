@@ -3,12 +3,13 @@ import { apiSearchResults } from "./HomePage";
 import PosterNotFound from "../images/poster-not-found.png";
 import MyPlant from "../images/plant.png";
 import { AddToWatchList } from "../Utils/AddToWatchList";
-import {RemoveFromWatchList} from "../Utils/RemoveFromWatchList";
-import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
 
 
 async function RemoveFromPlantFunction(res:apiSearchResults){
-  console.log('Remove');
+  return (<Link to="/my-plants/thresold">
+
+  </Link>);
 }
 function SearchDetails(
   result: Array<apiSearchResults>
@@ -58,15 +59,15 @@ function SearchDetails(
             <div className="plant-label">Last Reading: {res.lastUpdated}</div>
 
           </div>
-         
+          <Link to="/my-plants/threshold"
+          state={{ plantName: res.name }}>
             <button
-              className="delete-plant-button"
-              onClick={(e) => RemoveFromPlantFunction(res)}
+              className="add-plant-rule-button"
+              
             >
-              Delete&emsp;
-              <i className="fas fa-trash" />
+              Add Rules&emsp;
             </button>
-         
+         </Link>
         </div>
       </div>
     );

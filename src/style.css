@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya&display=swap");
 
 * {
-  background-color:#252a2b;
+  background-color:#c5742d;
 }
 ::-webkit-scrollbar{
   width: 5px;
@@ -53,6 +53,46 @@
   align-items: center;
   justify-content: center;
 }
+
+.rule-box {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.rule-box input {
+  width: 200px;
+  height: 35px;
+  font-size: 18px;
+  font-family: "Alegreya", serif;
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+.rule-box button {
+  height: 40px;
+  font-size: 18px;
+  font-family: "Alegreya", serif;
+  background-color: rgb(225, 7, 18);
+  color: whitesmoke;
+  border: 1px solid black;
+  cursor: pointer;
+  padding: 0 15px 0 15px;
+}
+.rule-box button:hover {
+  background-color: rgb(224, 33, 42);
+}
+.rule-box .title{
+  font-size: 18px;
+  margin-top: 10px;
+}
+.search-results-disp {
+  margin-top: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 .card {
   width: 350px;
   height: 230px;
@@ -89,7 +129,7 @@ p{
   font-size: 18px;
   margin-top: 10px;
 }
-.card .delete-plant-button {
+.card .add-plant-rule-button {
   width: 130px;
   padding: 5px;
   color: whitesmoke;

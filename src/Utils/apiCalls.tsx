@@ -5,7 +5,7 @@ export async function apiCall() {
   let plantNames: Array<string> = [];
 
   await axios
-    .get(`http://192.168.86.164:8081/plant/all`)
+    .get(`http://localhost:8081/plant/all`)
     .then((res) => {
       if (res.data.Error) {
         return [{ error: res.data.Error }];
@@ -25,7 +25,7 @@ export async function searchByNames(plantNames: Array<string>) {
   await Promise.all(
     plantNames.map(async (name) => {
       await axios
-        .get(`http://192.168.86.164:8081/plant-data/plant?name=${name}`)
+        .get(`http://localhost:8081/plant-data/plant?name=${name}`)
         .then((res2) => {
           search_results_detail.push({
             name: name,
