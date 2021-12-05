@@ -10,33 +10,23 @@ export default function MyPlantThreshold() {
   const location = useLocation()
   // defining the initial state for the form
 let initialState: apiPlantThresholdResults = {};
-  // let initialState = {
-  //   name: "",
-  //   minTemperature: "",
-  //   maxTemperature: "",
-  //   minLight: "",
-  //   maxLight: "",
-  //   minMoisture: "",
-  //   maxMoisture: "",
-  //   minHumidity: "",
-  //   maxHumidity: "",
-  // };
 
-  // const [initialState, setInitialState] = useState<apiPlantThresholdResults>();
-  // const [loading, setloading] = useState<boolean>(true);
+
+  const [currentState, setCurrentState] = useState<apiPlantThresholdResults>();
+  const [loading, setloading] = useState<boolean>(true);
 
   console.log(location.state);
   const plantName = location.state.plantName;
   
-  // async function LoadFromApiCall() {
-  //   let res: apiPlantThresholdResults = await searchPlantThreshold(plantName);
-  //   setInitialState(res);
-  //   setloading(false);
-  // }
+  async function LoadFromApiCall() {
+    let res: apiPlantThresholdResults = await searchPlantThreshold(plantName);
+    setCurrentState(res);
+    setloading(false);
+  }
 
-  // useEffect(() => {
-  //   LoadFromApiCall();
-  // }, []);
+  useEffect(() => {
+    LoadFromApiCall();
+  }, []);
 
   // getting the event handlers from our custom hook
   const { onChange, onSubmit, values } = useForm(
@@ -73,7 +63,7 @@ let initialState: apiPlantThresholdResults = {};
             <div className="rule-box-container">
               <div className="rule-box-title">Plant Name: {plantName}</div>
 
-              <div className="field">
+              <div className="rule-box-field">
                 <label>Min. Temperature</label>
                 <input
                   name='minTemperature'
@@ -83,8 +73,9 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
+               <div className="rule-box-title">Current Min. Temperature : {currentState?.minTemperature}</div>
               </div>
-              <div className="field">
+              <div className="rule-box-field">
                 <label>Max. Temperature</label>
                 <input
                   name='maxTemperature'
@@ -94,8 +85,10 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
+                 <div className="rule-box-title">Current Max. Temperature : {currentState?.maxTemperature}</div>
+
               </div>
-              <div className="field">
+              <div className="rule-box-field">
                 <label>Min. Humidity</label>
                 <input
                   name='minHumidity'
@@ -105,8 +98,9 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
+                <div className="rule-box-title">Current Min. Humidity : {currentState?.minHumidity}</div>
               </div>
-              <div className="field">
+              <div className="rule-box-field">
                 <label>Max Humidity</label>
                 <input
                   name='maxHumidity'
@@ -116,30 +110,33 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
+                <div className="rule-box-title">Current Max. Humidity : {currentState?.maxHumidity}</div>
               </div>
-              <div className="field">
+              <div className="rule-box-field">
                 <label>Min Light</label>
                 <input
                   name='minLight'
                   id='min-light'
-                  type="number" step="any" min="0" max="100"
+                  type="number" step="any" min="0" max="255"
                   placeholder='min-light'
                   onChange={onChange}
                   required
                 />
+                <div className="rule-box-title">Current Min. Light : {currentState?.minLight}</div>
               </div>
-              <div className="field">
+              <div className="rule-box-field">
                 <label>Max Light</label>
                 <input
                   name='maxLight'
                   id='max-light'
-                  type="number" step="any" min="0" max="100"
+                  type="number" step="any" min="0" max="255"
                   placeholder='max-light'
                   onChange={onChange}
                   required
                 />
+                <div className="rule-box-title">Current Max. Light : {currentState?.maxLight}</div>
               </div>
-              <div className="field">
+              <div className="rule-box-field">
                 <label>Min Moisture</label>
                 <input
                   name='minMoisture'
@@ -149,8 +146,9 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
+                <div className="rule-box-title">Current Min. Moisture : {currentState?.minMoisture}</div>
               </div>
-              <div className="field">
+              <div className="rule-box-field">
                 <label htmlFor="max-moisture" >Max Moisture</label>
                 <input
                   name='maxMoisture'
@@ -160,6 +158,7 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
+                <div className="rule-box-title">Current Max. Moisture : {currentState?.maxMoisture}</div>
               </div>
               <button type='submit'>Save</button>
             </div>

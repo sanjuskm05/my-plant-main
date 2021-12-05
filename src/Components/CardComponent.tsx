@@ -5,7 +5,7 @@ import MyPlant from "../images/plant.png";
 import { Link } from "react-router-dom";
 
 
-async function RemoveFromPlantFunction(res:apiSearchResults){
+async function RemoveFromPlantFunction(res: apiSearchResults) {
   return (<Link to="/my-plants/thresold">
 
   </Link>);
@@ -13,9 +13,9 @@ async function RemoveFromPlantFunction(res:apiSearchResults){
 function SearchDetails(
   result: Array<apiSearchResults>
 ) {
-  
 
-  
+
+
   function posterComponent(poster?: string) {
     if (poster === "N/A") {
       return <img src={PosterNotFound} />;
@@ -25,32 +25,35 @@ function SearchDetails(
   }
 
 
-  
+
   return result.map((res) => {
     if (res.error) {
       return (
         <div className="err">
-            <div>
-              Sorry, We <span>couldn't find</span> what you're{" "}
-              <span>looking for...</span>
-            </div>
+          <div>
+            Sorry, We <span>couldn't find</span> what you're{" "}
+            <span>looking for...</span>
+          </div>
         </div>
       );
     }
     return (
       <div className="card">
         <div className="card-child">
-          <div className="container">
-            {posterComponent("")}
-            <div className="plot">
-              <p>{res.description}</p>
+          <Link to="/my-plants/threshold"
+            state={{ plantName: res.name }}>
+            <div className="container">
+              {posterComponent("")}
+              <div className="plot">
+                <p>{res.description}</p>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="card-child">
           <div className="card-contents">
             <div className="plant-label">Plant Name: {res.name}</div>
-      
+
             <div className="plant-label">Moisture: {res.moisture}</div>
             <div className="plant-label">Light: {res.light}</div>
             <div className="plant-label">Humidity: {res.humidity}</div>
@@ -59,14 +62,14 @@ function SearchDetails(
 
           </div>
           <Link to="/my-plants/threshold"
-          state={{ plantName: res.name }}>
+            state={{ plantName: res.name }}>
             <button
-              className="add-plant-rule-button"
-              
+              className="plant-rule-button"
             >
-              Add Rules&emsp;
+              Rules&emsp;
             </button>
-         </Link>
+          </Link>
+
         </div>
       </div>
     );
@@ -84,9 +87,9 @@ export const SearchResults: React.FC<Props> = ({
     return (
       <div>
         <div className="search-results-heading">
-            <div>
-              Our <span>Plants:</span>
-            </div>
+          <div>
+            Our <span>Plants:</span>
+          </div>
         </div>
         <div className="search-results-disp">
           {SearchDetails(result)}

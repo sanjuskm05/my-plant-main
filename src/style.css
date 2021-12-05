@@ -60,20 +60,42 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+ 
 }
-.rule-container{
-  width: 150px;
-  height: 230px;
+.rule-box-field {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: left;
+ 
+}
+.rule-box-container{
+  width: 650px;
+  height: 130px;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
 }
 .rule-box input {
   width: 200px;
-  height: 35px;
+  height: 28px;
   font-size: 18px;
   font-family: "Alegreya", serif;
   background-color: whitesmoke;
   border: 1px solid black;
 }
+.rule-box label {
+  font-family: "Alegreya", serif;
+  font-size: 18px;
+  color: solid black;
+  height: 20px;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: right;
+  clear: both;
+ }
 .rule-box button {
   height: 40px;
   font-size: 18px;
@@ -134,8 +156,8 @@ p{
   font-size: 18px;
   margin-top: 10px;
 }
-.card .add-plant-rule-button {
-  width: 130px;
+.card .plant-rule-button {
+  width: 50px;
   padding: 5px;
   color: whitesmoke;
   background-color: rgb(225, 7, 18);
@@ -146,13 +168,7 @@ p{
   top: 185px;
   left: 210px;
 }
-.card .add-to-watchlist i {
-  color: black;
-  background-color: rgb(225, 7, 18);
-}
-.card .add-to-watchlist:hover {
-  background-color: rgb(224, 33, 42);
-}
+
 .err{
     color: whitesmoke;
     font-size: 24px;
@@ -160,29 +176,7 @@ p{
 .err span{
     color: rgb(219, 11, 21);
 }
-.imdb-rating{
-  position: absolute;
-  top: 190px;
-  left: 150px;
-}
-.imdb-rating i{
-  color:rgb(245,197,24)
-}
-.imdb-rating span{
-  opacity: 0.8;
-}
-.release-year-and-runtime{
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 0;
-}
-.release-year-and-runtime p,i{
-  opacity: 0.8;
-}
-.release-year-and-runtime i{
-  color: whitesmoke;
-  font-size:4px;
-}
+
 .plot{
   position: absolute;
   top:0;
