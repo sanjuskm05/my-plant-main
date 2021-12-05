@@ -54,6 +54,14 @@
   justify-content: center;
 }
 
+.chart-container{
+  width: 650px;
+  height: 530px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
 .rule-box {
   margin-top: 20px;
   display: flex;

@@ -3,7 +3,6 @@ import { SearchResults } from "./CardComponent";
 import { apiCall, apiSearchResults } from "../Utils/apiCalls";
 import "../style.css";
 import { loaderAnimation } from "./loaderAnimation";
-import { WatchListIcon } from "./WatchListIcon";
 
 type Props = {};
 
@@ -58,11 +57,10 @@ const HomePage: React.FC<Props> = ({}) => {
         loaderAnimation(loadingwatchlist)
       ) : (
         <div className="main-container">
-          <WatchListIcon watchlist={watchlist} />
           <div className="search-box">
             <input
               type="text"
-              placeholder="Search Movies, Series"
+              placeholder="Search "
               value={value}
               onChange={(e) => handleProps(e)}
               onKeyPress={(e) => handleKeyPress(e)}
