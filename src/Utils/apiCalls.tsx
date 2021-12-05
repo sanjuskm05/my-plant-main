@@ -23,7 +23,14 @@ export interface apiPlantThresholdResults {
   minHumidity?: string;
   maxHumidity?: string;
 }
-
+export interface apiPlantDailyReportResults {
+  avgTemperature?: number;
+  avgLight?: number;
+  avgHumidity?: number;
+  avgMoisture?: number;
+  dailyHour?: number;
+  isWaterOn?: number;
+}
 export async function apiCall() {
   let plantNames: Array<string> = [];
 
@@ -118,4 +125,29 @@ export async function submitPlantThreshold(plantName: string,
       });
   }
   return "";
+}
+
+
+export async function searchPlantDailyReport(plantName: string) {
+
+  let search_results_detail: Array<apiPlantDailyReportResults> = [];
+  await axios
+    .get(`http://localhost:8081/plant-data/plant-daily-data?name=${plantName}`)
+    .then((res) => {
+      for (var i = 0; i < res.data.length; i++) {
+        search_results_detail.push({
+          avgTemperature: res.data[i].avgTemperature,
+          avgLight: res.data[i].avgLight,
+          avgHumidity: res.data[i].avgHumidity,
+          avgMoisture: res.data[i].avgMoisture,
+          dailyHour: res.data[i].dailyHour,
+          isWaterOn: res.data[i].isWaterOn,
+        });
+      }
+    })
+    .catch((err) => {
+      return [];
+    });
+
+  return search_results_detail;
 }

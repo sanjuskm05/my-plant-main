@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { apiCall } from "../Utils/apiCalls";
 import { useForm } from "../Utils/useForm";
-import { loaderAnimation } from "./loaderAnimation";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router"
 import { searchPlantThreshold, apiPlantThresholdResults, submitPlantThreshold } from "../Utils/apiCalls";
