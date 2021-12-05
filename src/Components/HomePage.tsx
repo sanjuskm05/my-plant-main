@@ -1,22 +1,12 @@
 import React, { useState } from "react";
 import { SearchResults } from "./CardComponent";
-import { apiCall } from "../Utils/apiCalls";
+import { apiCall, apiSearchResults } from "../Utils/apiCalls";
 import "../style.css";
 import { loaderAnimation } from "./loaderAnimation";
 import { WatchListIcon } from "./WatchListIcon";
 
 type Props = {};
-export interface apiSearchResults {
-  plantId?: string;
-  name?: string;
-  description?: string;
-  temperature?: string;
-  light?: string;
-  moisture?: string;
-  humidity?: string;
-  lastUpdated?:string;
-  error?:string;
-}
+
 export type WatchListResponse = {
   Data?: Array<string>;
   Error?: string;

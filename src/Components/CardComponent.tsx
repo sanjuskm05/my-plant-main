@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { apiSearchResults } from "./HomePage";
+import { apiSearchResults } from "../Utils/apiCalls";
 import PosterNotFound from "../images/poster-not-found.png";
 import MyPlant from "../images/plant.png";
-import { AddToWatchList } from "../Utils/AddToWatchList";
 import { Link } from "react-router-dom";
 
 

@@ -14,7 +14,7 @@ export const useForm = (callback: any, initialState = {}) => {
     // onSubmit
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        await callback(); // triggering the callback
+        await callback(values); // triggering the callback
     };
 
     // return values

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { SearchResults } from "./CardComponent";
-import { apiCall } from "../Utils/apiCalls";
-import { apiSearchResults } from "./HomePage";
+import { apiCall, apiSearchResults } from "../Utils/apiCalls";
 import { loaderAnimation } from "./loaderAnimation";
 
 export default function MyPlants() {

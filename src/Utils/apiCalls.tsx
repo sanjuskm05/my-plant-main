@@ -1,5 +1,28 @@
 import axios from "axios";
-import { apiSearchResults } from "../Components/HomePage";
+
+export interface apiSearchResults {
+  plantId?: string;
+  name?: string;
+  description?: string;
+  temperature?: string;
+  light?: string;
+  moisture?: string;
+  humidity?: string;
+  lastUpdated?: string;
+  error?: string;
+}
+
+export interface apiPlantThresholdResults {
+  name?: string;
+  minTemperature?: string;
+  maxTemperature?: string;
+  minLight?: string;
+  maxLight?: string;
+  minMoisture?: string;
+  maxMoisture?: string;
+  minHumidity?: string;
+  maxHumidity?: string;
+}
 
 export async function apiCall() {
   let plantNames: Array<string> = [];
@@ -41,6 +64,58 @@ export async function searchByNames(plantNames: Array<string>) {
         });
     })
   );
-  if (search_results_detail.length === 0) return [{ error: "Movie Not Found" }];
+  if (search_results_detail.length === 0) return [{ error: "Plant Not Found" }];
   return search_results_detail;
+}
+
+export async function searchPlantThreshold(plantName: string) {
+  let search_result_detail: apiPlantThresholdResults = {};
+  await axios
+    .get(`http://localhost:8081/plant-thresold-map/plant?name=${plantName}`)
+    .then((res) => {
+      search_result_detail = {
+        name: plantName,
+        minTemperature: res.data.minTemperature,
+        maxTemperature: res.data.maxTemperature,
+        minLight: res.data.minLight,
+        maxLight: res.data.maxTemperature,
+        minMoisture: res.data.minMoisture,
+        maxMoisture: res.data.maxMoisture,
+        minHumidity: res.data.minHumidity,
+        maxHumidity: res.data.maxHumidity,
+      };
+    })
+    .catch((err) => {
+      return {};
+    });
+  return search_result_detail;
+}
+
+export async function submitPlantThreshold(plantName: string,
+  minTemp: string,
+  maxTemp: string,
+  minMoisture: string,
+  maxMoisture: string,
+  minHumidity: string,
+  maxHumidity: string,
+  minLight: string,
+  maxLight: string,
+  actioName: string,
+  isPlantThresholdExists: boolean
+) {
+
+  if (isPlantThresholdExists) {
+    await axios
+      .put(`http://localhost:8081/plant-thresold-map/update?minTemperature=${minTemp}&minMoisture=${minMoisture}&minHumidity=${minHumidity}&minLight=${minLight}&maxTemperature=${maxTemp}&maxMoisture=${maxMoisture}&maxHumidity=${maxHumidity}&maxLight=${maxLight}&actionName=${actioName}&plantName=${plantName}`)
+      .catch((err) => {
+        return [{ error: "Connection Failed" }];
+      });
+  } else {
+    await axios
+      .post(`http://localhost:8081/plant-thresold-map/add?minTemperature=${minTemp}&minMoisture=${minMoisture}&minHumidity=${minHumidity}&minLight=${minLight}&maxTemperature=${maxTemp}&maxMoisture=${maxMoisture}&maxHumidity=${maxHumidity}&maxLight=${maxLight}&actionName=${actioName}&plantName=${plantName}`)
+      .catch((err) => {
+        return [{ error: "Connection Failed" }];
+      });
+  }
+  return "";
 }
