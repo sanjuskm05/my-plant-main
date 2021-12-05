@@ -54,10 +54,10 @@ function SearchDetails(
           <div className="card-contents">
             <div className="plant-label">Plant Name: {res.name}</div>
 
-            <div className="plant-label">Moisture: {res.moisture}</div>
-            <div className="plant-label">Light: {res.light}</div>
-            <div className="plant-label">Humidity: {res.humidity}</div>
-            <div className="plant-label">Temperature: {res.temperature}</div>
+            <div className="plant-label">Moisture: {res.moisture}%</div>
+            <div className="plant-label">Light: {res.light} RGB</div>
+            <div className="plant-label">Humidity: {res.humidity}%</div>
+            <div className="plant-label">Temperature: {res.temperature} F</div>
             <div className="plant-label">Last Reading: {res.lastUpdated}</div>
 
           </div>

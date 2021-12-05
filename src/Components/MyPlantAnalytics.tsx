@@ -21,7 +21,7 @@ export default function MyPlantAnalytics() {
     var data = [];
 
     if (search_results_detail.length > 0) {
-      data.push(['Time', 'Avg. Temperature', 'Avg. Light', 'Avg. Humidity', 'Avg. Moisture', 'Is Water On']);
+      data.push(['Time', 'Avg. Temperature(F)', 'Avg. Light(RGB)', 'Avg. Humidity(%)', 'Avg. Moisture(%)', 'Is Water On']);
     }
     for (var i = 0; i < search_results_detail.length; i++) {
       let avgTemperature = search_results_detail[i].avgTemperature;
@@ -68,9 +68,9 @@ export default function MyPlantAnalytics() {
               options={{
                 title: 'Daily Plant Data',
                 vAxis: { title: 'Plant Data' },
-                hAxis: { title: 'Time' },
+                hAxis: { title: 'Time(HH)' },
                 seriesType: 'line',
-                series: { 5: { type: 'scatter' } },
+                series: { 4: { type: 'scatter' } },
               }}
             />
           </div>
