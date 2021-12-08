@@ -71,7 +71,7 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
-               <div className="rule-box-title">Current Min. Temperature : {currentState?.minTemperature}</div>
+               <div className="rule-box-title">Current Min. Temperature : {currentState?.minTemperature} F</div>
               </div>
               <div className="rule-box-field">
                 <label>Max. Temperature</label>
@@ -83,7 +83,7 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
-                 <div className="rule-box-title">Current Max. Temperature : {currentState?.maxTemperature}</div>
+                 <div className="rule-box-title">Current Max. Temperature : {currentState?.maxTemperature} F</div>
 
               </div>
               <div className="rule-box-field">
@@ -96,7 +96,7 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
-                <div className="rule-box-title">Current Min. Humidity : {currentState?.minHumidity}</div>
+                <div className="rule-box-title">Current Min. Humidity : {currentState?.minHumidity} %</div>
               </div>
               <div className="rule-box-field">
                 <label>Max Humidity</label>
@@ -108,7 +108,7 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
-                <div className="rule-box-title">Current Max. Humidity : {currentState?.maxHumidity}</div>
+                <div className="rule-box-title">Current Max. Humidity : {currentState?.maxHumidity} %</div>
               </div>
               <div className="rule-box-field">
                 <label>Min Light</label>
@@ -120,7 +120,7 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
-                <div className="rule-box-title">Current Min. Light : {currentState?.minLight}</div>
+                <div className="rule-box-title">Current Min. Light : {currentState?.minLight} RGB</div>
               </div>
               <div className="rule-box-field">
                 <label>Max Light</label>
@@ -132,7 +132,7 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
-                <div className="rule-box-title">Current Max. Light : {currentState?.maxLight}</div>
+                <div className="rule-box-title">Current Max. Light : {currentState?.maxLight} RGB</div>
               </div>
               <div className="rule-box-field">
                 <label>Min Moisture</label>
@@ -144,7 +144,7 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
-                <div className="rule-box-title">Current Min. Moisture : {currentState?.minMoisture}</div>
+                <div className="rule-box-title">Current Min. Moisture : {currentState?.minMoisture} %</div>
               </div>
               <div className="rule-box-field">
                 <label htmlFor="max-moisture" >Max Moisture</label>
@@ -156,7 +156,7 @@ let initialState: apiPlantThresholdResults = {};
                   onChange={onChange}
                   required
                 />
-                <div className="rule-box-title">Current Max. Moisture : {currentState?.maxMoisture}</div>
+                <div className="rule-box-title">Current Max. Moisture : {currentState?.maxMoisture} %</div>
               </div>
               <button type='submit'>Save</button>
             </div>
