@@ -57,14 +57,16 @@ export async function searchByNames(plantNames: Array<string>) {
       await axios
         .get(`http://localhost:8081/plant-data/plant?name=${name}`)
         .then((res2) => {
-          search_results_detail.push({
-            name: name,
-            temperature: res2.data.temperature,
-            lastUpdated: res2.data.lastUpdatedDate,
-            humidity: res2.data.humidity,
-            moisture: res2.data.moisture,
-            light: res2.data.light,
-          });
+          if (res2.data.lastUpdatedDate !== null) {
+            search_results_detail.push({
+              name: name,
+              temperature: res2.data.temperature,
+              lastUpdated: res2.data.lastUpdatedDate,
+              humidity: res2.data.humidity,
+              moisture: res2.data.moisture,
+              light: res2.data.light,
+            });
+          }
         })
         .catch((err) => {
           return [{ error: "Connected Failed" }];
